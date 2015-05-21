@@ -27,6 +27,10 @@
             android:label="BeerOfWeek" >
 
         </activity>
+        <activity
+            android:name=".SurpriseMe"
+            >
+        </activity>
     </application>
 
 </manifest>

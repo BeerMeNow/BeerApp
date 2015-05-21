@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button beerWeek;
+    Button beerWeek, surpriseMe;
 
 
     @Override
@@ -47,13 +47,28 @@ public class MainActivity extends ActionBarActivity {
         beerWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                featured();
+                beerOfTheWeek();
+            }
+        });
+
+        surpriseMe = (Button) findViewById(R.id.surpiseMe);
+        surpriseMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                surpriseMe();
             }
         });
     }
 
+    public void surpriseMe()
+    {
+        Intent intent = new Intent(MainActivity.this,SurpriseMe.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
+    }
 
-    public void featured()
+
+    public void beerOfTheWeek()
     {
         Intent intent = new Intent(MainActivity.this,BeerOfTheWeek.class);
         intent.putExtra("taco","taco");

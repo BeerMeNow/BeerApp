@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Beer Me"
-        android:textSize="75sp"
+        android:text="Beer Me Now"
+        android:textSize="45sp"
         android:layout_centerHorizontal="true"
         android:id="@+id/title"
         android:paddingBottom="20sp"/>
