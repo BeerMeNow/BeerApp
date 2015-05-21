@@ -1,8 +1,6 @@
 package com.argumedo.kevin.beerapp;
 
 import android.util.Log;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,6 +24,7 @@ public class Surprise {
         JSONObject results = new JSONObject(featuredData);
         JSONObject data = results.optJSONObject("data");
         Log.d("DATADATA", data.toString());
+        //catches error if picture does not exist
         try
         {
             JSONObject labels = data.optJSONObject("labels");
@@ -35,17 +34,14 @@ public class Surprise {
             Surprise Random = new Surprise(data, pic);
             randomBeer.add(Random);
         }
-        catch(NullPointerException E)
-        {
+        catch(NullPointerException E) {
             String pic = "";
             Surprise Random = new Surprise(data, pic);
             randomBeer.add(Random);
         }
-
         return randomBeer;
 
     }
-
     public String getName() {
         return name;
     }

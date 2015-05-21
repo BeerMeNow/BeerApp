@@ -91,7 +91,7 @@ public class SurpriseMe extends ActionBarActivity
         protected String doInBackground(String... params) {
             String startURL = "https://api.brewerydb.com/v2/";
             String endURL = "key=e1afe81e104ba290bb7507cd693ead92&format=json";
-            String dataString = startURL + "beer/random?" + endURL;
+            String dataString = startURL + "beer/random?hasLabels=y&" + endURL;
 
             try {
                 URL dataURL = new URL(dataString);
