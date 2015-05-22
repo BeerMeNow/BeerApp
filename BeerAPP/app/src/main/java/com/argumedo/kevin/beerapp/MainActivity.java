@@ -9,11 +9,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +39,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button beerWeek, surpriseMe;
+    Button beerWeek, surpriseMe, search;
+    EditText searchQ;
 
 
     @Override
@@ -58,7 +63,30 @@ public class MainActivity extends ActionBarActivity {
                 surpriseMe();
             }
         });
+
+        searchQ = (EditText) findViewById(R.id.searchQ);
+
+        search = (Button) findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search();
+            }
+        });
+
     }
+
+    public void search()
+    {
+        EditText editText = (EditText) findViewById(R.id.searchQ);
+        String query = editText.getText().toString();
+
+        Intent intent = new Intent(MainActivity.this, Search.class);
+        intent.putExtra("query", query);
+        startActivity(intent);
+
+    }
+
 
     public void surpriseMe()
     {
@@ -75,6 +103,8 @@ public class MainActivity extends ActionBarActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

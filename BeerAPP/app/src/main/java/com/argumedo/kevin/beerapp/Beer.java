@@ -1,37 +1,109 @@
 package com.argumedo.kevin.beerapp;
 
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Beer {
-    String id, name, abv;
-
-
-    public Beer(JSONObject jsonBeer) throws JSONException
+    private String beerId, name, description, abv, pic;
+    public Beer(JSONObject jsonBeer, String Pic) throws JSONException
     {
-        this.id = (String) jsonBeer.optString("id");
+        this.beerId = (String) jsonBeer.optString("id");
         this.name = (String) jsonBeer.optString("name");
+        this.description = (String) jsonBeer.optString("description");
         this.abv = (String) jsonBeer.optString("abv");
+        this.pic = Pic;
     }
 
-    public static ArrayList<Beer>  makeBeerList (String beerData) throws JSONException
+    public static ArrayList<Beer> getFeaturedBeer(String featuredData) throws JSONException
     {
-        ArrayList<Beer> beerList = new ArrayList<Beer>();
-        JSONObject data = new JSONObject(beerData);
-        JSONArray  beerArray = data.optJSONArray("data");
+        ArrayList<Beer> featuredBeer = new ArrayList<>();
+        JSONObject results = new JSONObject(featuredData);
+        JSONObject data = results.optJSONObject("data");
+        JSONObject fBeer = data.optJSONObject("beer");
+        JSONObject label = fBeer.optJSONObject("labels");
+        String pic = label.optString("large");
+        Beer BotW = new Beer(fBeer, pic);
+        featuredBeer.add(BotW);
 
-        for(int i = 0; i < beerArray.length(); i++)
+        return featuredBeer;
+    }
+
+    public static ArrayList<Beer> getRandomBeer(String featuredData) throws JSONException
+    {
+        ArrayList<Beer> randomBeer = new ArrayList<>();
+        JSONObject results = new JSONObject(featuredData);
+        JSONObject data = results.optJSONObject("data");
+        Log.d("DATADATA", data.toString());
+        //catches error if picture does not exist
+        try
         {
-            JSONObject beer = (JSONObject) beerArray.get(i);
-            Beer currentBeer = new Beer(beer);
-            beerList.add(currentBeer);
+            JSONObject labels = data.optJSONObject("labels");
+            Log.d("PICTURE", labels +"");
+            String pic = labels.optString("large");
+            Log.d("PICTURE", pic);
+            Beer Random = new Beer(data, pic);
+            randomBeer.add(Random);
+        }
+        catch(NullPointerException E) {
+            String pic = "";
+            Beer Random = new Beer(data, pic);
+            randomBeer.add(Random);
+        }
+        return randomBeer;
+
+    }
+
+    public static ArrayList<Beer> getBeers(String featuredData) throws JSONException
+    {
+        ArrayList<Beer> beers = new ArrayList<>();
+        JSONObject results = new JSONObject(featuredData);
+        JSONArray data = results.optJSONArray("data");
+        String pic = "";
+        for(int i = 0; i < data.length(); i++)
+        {
+            JSONObject beer =  (JSONObject) data.get(i);
+            try
+            {
+                JSONObject labels = beer.optJSONObject("labels");
+                pic = labels.optString("large");
+            }
+            catch(Exception E)
+            {
+                pic = "";
+            }
+            Beer cBeer = new Beer(beer, pic);
+            beers.add(cBeer);
         }
 
-        return beerList;
+        return beers;
+
     }
 
 
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBeerId() {
+        return beerId;
+    }
+
+    public String getAbv() {
+        return abv;
+    }
+
+    public String getDescription() {
+
+        return description;
+    }
+
+    public String getPic() {
+        return pic;
+    }
 }

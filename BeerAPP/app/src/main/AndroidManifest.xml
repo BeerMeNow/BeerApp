@@ -32,6 +32,12 @@
             android:label="Surprise!" >
 
         </activity>
+
+        <activity
+            android:name=".Search"
+            android:label="Search" >
+
+        </activity>
     </application>
 
 </manifest>

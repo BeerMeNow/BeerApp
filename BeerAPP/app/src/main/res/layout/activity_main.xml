@@ -10,34 +10,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Beer Me Now"
+        android:textColor="#000"
         android:textSize="45sp"
         android:layout_centerHorizontal="true"
         android:id="@+id/title"
         android:paddingBottom="20sp"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:id="@+id/searchLayout"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:id="@+id/searchQ"
+            android:text=""
+            android:textColor="#000"
+            android:background="@drawable/shape"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="search"
+            android:id="@+id/search"
+            android:layout_toRightOf="@id/searchQ"
+            />
+        </RelativeLayout>
 
     <GridLayout
-        android:layout_below="@id/title"
-        android:id="@+id/numbers"
+        android:id="@+id/options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="1"
+        android:paddingTop="30sp"
         android:rowCount="5"
         android:layout_centerHorizontal="true"
         android:useDefaultMargins="false"
-        >
+        android:layout_below="@id/searchLayout">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="70sp"
-            android:textSize="25sp"
-            android:id="@+id/search"
-            android:textAlignment="center"
-            android:background="@drawable/searchbeer"
-            android:text=""
-            android:gravity="center"
-            android:clickable="false"
-            />
 
         <Button
             android:layout_width="fill_parent"

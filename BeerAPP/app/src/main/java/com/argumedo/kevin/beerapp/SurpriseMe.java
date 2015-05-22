@@ -29,11 +29,6 @@ import java.util.ArrayList;
 public class SurpriseMe extends ActionBarActivity
 {
 
-    private String PhotoURL, imageString;
-    private ImageView featuredImage;
-    private Bitmap featuredBitmap;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,35 +52,12 @@ public class SurpriseMe extends ActionBarActivity
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return (networkInfo != null && networkInfo.isConnected());
     }
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
-
 
     private class CallAPI extends AsyncTask<String, String, String> {
-        ArrayList<Surprise> randomBeer;
+        ArrayList<Beer> randomBeer;
         HttpURLConnection urlConnection = null;
+        ImageView image = (ImageView) findViewById(R.id.RandomPic);
+        Bitmap bmImage = null;
 
         @Override
         protected String doInBackground(String... params) {
@@ -113,17 +85,30 @@ public class SurpriseMe extends ActionBarActivity
                 String fData = sb.toString();
                 Log.d("data", fData);
 
-                randomBeer = Surprise.getRandomBeer(fData);
+                randomBeer = Beer.getRandomBeer(fData);
 
-            } catch (MalformedURLException e) {
+                InputStream in = new java.net.URL(randomBeer.get(0).getPic()).openStream();
+                bmImage = BitmapFactory.decodeStream(in);
+
+
+            }  catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
                 e.printStackTrace();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
             } finally {
+                if(bmImage == null)
+                {
+                    image.setImageDrawable(getResources().getDrawable(R.drawable.unavailable));
+                }
                 if (urlConnection != null) {
                     urlConnection.disconnect();
+
                 }
             }
             return "";
@@ -148,20 +133,15 @@ public class SurpriseMe extends ActionBarActivity
                     else
                     {
                         rDesc.setText("Description is Unavailable");
-
                     }
-
-                    if(randomBeer.get(0).getPic().length() > 0)
+                    if(bmImage == null)
                     {
-                        new DownloadImageTask((ImageView) findViewById(R.id.RandomPic))
-                                .execute(randomBeer.get(0).getPic());
+                        image.setImageDrawable(getResources().getDrawable(R.drawable.unavailable));
                     }
-                    else
-                    {
-                        ImageView img = (ImageView) findViewById(R.id.RandomPic);
-                        img.setImageDrawable(getResources().getDrawable(R.drawable.unavailable));
+                    else {
+                        image.setImageBitmap(bmImage);
                     }
-                }
+            }
                 else
                 {
                     rName.setText("Error");
