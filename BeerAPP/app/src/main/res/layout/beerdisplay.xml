@@ -24,7 +24,7 @@
                 android:textSize="30sp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:id="@+id/beerName"
+                android:id="@+id/Name"
                 />
 
             <TextView
@@ -32,28 +32,28 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textSize="30sp"
-                android:layout_below="@id/beerName"
+                android:layout_below="@id/Name"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:id="@+id/beerABV"
+                android:id="@+id/ABV"
                 />
 
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/beerPic"
+                android:id="@+id/Pic"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/beerABV"
+                android:layout_below="@+id/ABV"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/beerPic"
+                android:layout_below="@id/Pic"
                 android:text=""
                 android:textSize="15sp"
-                android:id="@+id/beerDesc"
+                android:id="@+id/Desc"
                 />
         </RelativeLayout>
 

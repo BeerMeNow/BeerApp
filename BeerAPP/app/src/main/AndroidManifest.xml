@@ -38,6 +38,11 @@
             android:label="Search" >
 
         </activity>
+        <activity
+            android:name=".BeerDisplay"
+            android:label="BeerDisplay" >
+
+        </activity>
     </application>
 
 </manifest>

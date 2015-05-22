@@ -14,12 +14,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +46,6 @@ public class Search extends ActionBarActivity
         setContentView(R.layout.beer_list);
         Intent intent = getIntent();
         query = intent.getStringExtra("query");
-
         startLoadTask(Search.this);
 
 
@@ -75,7 +76,7 @@ public class Search extends ActionBarActivity
         protected String doInBackground(String... params) {
             String startURL = "https://api.brewerydb.com/v2/";
             String endURL = "key=e1afe81e104ba290bb7507cd693ead92&format=json";
-            String dataString = startURL + "search?q=+"+ query + "&" + endURL;
+            String dataString = startURL + "search?q=+"+ query + "&type=beer&" + endURL;
 
             try {
                 URL dataURL = new URL(dataString);
@@ -141,19 +142,21 @@ public class Search extends ActionBarActivity
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
 
-                    // ListView Clicked item index
                     int itemPosition     = position;
 
-                    // ListView Clicked item value
-                    String  itemValue    = listView.getItemAtPosition(position).toString();
 
-                    // Show Alert
-                    Toast.makeText(getApplicationContext(),
-                            "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                            .show();
+                    Beer vBeer = beers.get(itemPosition);
+
+                    Intent intent = new Intent(Search.this, BeerDisplay.class);
+                    intent.putExtra("vBeer", vBeer );
+                    startActivity(intent);
                 }
 
+
+
             });
+
+
 
 
         }

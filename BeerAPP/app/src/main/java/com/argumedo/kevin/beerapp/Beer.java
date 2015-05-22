@@ -6,9 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Beer {
+public class Beer implements Serializable{
     private String beerId, name, description, abv, pic;
     public Beer(JSONObject jsonBeer, String Pic) throws JSONException
     {
@@ -32,6 +33,7 @@ public class Beer {
 
         return featuredBeer;
     }
+
 
     public static ArrayList<Beer> getRandomBeer(String featuredData) throws JSONException
     {

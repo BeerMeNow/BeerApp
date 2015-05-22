@@ -124,7 +124,7 @@ public class SurpriseMe extends ActionBarActivity
                 if(randomBeer != null)
                 {
                     rName.setText(randomBeer.get(0).getName());
-                    rABV.setText("ABV(" + randomBeer.get(0).getAbv());
+                    rABV.setText("ABV(" + randomBeer.get(0).getAbv() + "%)");
 
                     if(randomBeer.get(0).getDescription().length()>0)
                     {
