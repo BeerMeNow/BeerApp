@@ -132,19 +132,22 @@ public class SurpriseMe extends ActionBarActivity
         protected void onPostExecute(String result) {
             if(result != null)
             {
-                TextView fName = (TextView) findViewById(R.id.RandomName);
-                TextView fDesc = (TextView) findViewById(R.id.RandomDesc);
+                TextView rName = (TextView) findViewById(R.id.RandomName);
+                TextView rDesc = (TextView) findViewById(R.id.RandomDesc);
+                TextView rABV = (TextView)  findViewById(R.id.RandomABV);
 
                 if(randomBeer != null)
                 {
-                    fName.setText(randomBeer.get(0).getName() + " ABV(" + randomBeer.get(0).getAbv() + "%)");
+                    rName.setText(randomBeer.get(0).getName());
+                    rABV.setText("ABV(" + randomBeer.get(0).getAbv());
+
                     if(randomBeer.get(0).getDescription().length()>0)
                     {
-                        fDesc.setText(randomBeer.get(0).getDescription());
+                        rDesc.setText(randomBeer.get(0).getDescription());
                     }
                     else
                     {
-                        fDesc.setText("Description is Unavailable");
+                        rDesc.setText("Description is Unavailable");
 
                     }
 
@@ -161,7 +164,7 @@ public class SurpriseMe extends ActionBarActivity
                 }
                 else
                 {
-                    fName.setText("Error");
+                    rName.setText("Error");
                 }
             }
 
