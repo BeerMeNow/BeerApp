@@ -28,29 +28,18 @@ import java.util.ArrayList;
 
 public class BeerDisplay extends ActionBarActivity
 {
-    Beer beer;
-    TextView Name;
-    TextView Desc;
-    TextView ABV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beerdisplay);
-//        beer = (Beer) getIntent().getSerializableExtra("vBeer");
-//        Name = (TextView) findViewById(R.id.Name);
-//        Desc = (TextView) findViewById(R.id.Desc);
-//        ABV = (TextView)  findViewById(R.id.ABV);
-//
-//        Name.setText(beer.getName());
-//        ABV.setText(beer.getAbv());
-//        Desc.setText(beer.getDescription());
-        loadItems task = new loadItems();
-        task.execute();
+        startLoadTask(this);
     }
 
     public void startLoadTask(Context c){
         if (isOnline()) {
+            loadItems task = new loadItems();
+            task.execute();
 
         } else {
             Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
