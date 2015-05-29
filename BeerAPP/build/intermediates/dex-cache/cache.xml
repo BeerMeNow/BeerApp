@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="/home/zero/Android/B/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-698035a72b41256729a34c081b3b998b6b8eb328.jar" />
+        <dex dex="/home/zero/Android/B/BeerAPP/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-c5c9c94816fc49a2e6ff0fd9d6fb2d99a8858f39.jar" />
     </item>
     <item
-        jar="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-93fb764101ddd0da81b4e060053b0cc0db010120.jar" />
-    </item>
-    <item
-        jar="/Users/maricelavega/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-3e91e950e7091451c6f9f0de7ee078244652e765.jar" />
-    </item>
-    <item
-        jar="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/home/zero/Android/B/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/maricelavega/Desktop/CS454-Android/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-b9a79204a6ef9aa16f6f00f8944ea6ba2d76e4e1.jar" />
+        <dex dex="/home/zero/Android/B/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-e4c510c6b0d3c26f0c9ba7bbd545e4d91085101d.jar" />
+    </item>
+    <item
+        jar="/home/zero/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/home/zero/Android/B/BeerAPP/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-563627bb7b1afc60fc7a1d2cf74a76f8fff79402.jar" />
+    </item>
+    <item
+        jar="/home/zero/Android/B/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/home/zero/Android/B/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-a0976e4a9904f65c75cd4bc3bbe03a9dddcf8bf5.jar" />
     </item>
 
 </items>
