@@ -85,6 +85,7 @@ public class SurpriseMe extends ActionBarActivity
                 String fData = sb.toString();
                 Log.d("data", fData);
 
+
                 randomBeer = Beer.getRandomBeer(fData);
 
                 InputStream in = new java.net.URL(randomBeer.get(0).getPic()).openStream();
