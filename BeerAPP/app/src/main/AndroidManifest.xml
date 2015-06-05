@@ -21,7 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Favorites"
+            android:label="Favorites" >
 
+        </activity>
         <activity
             android:name=".BeerOfTheWeek"
             android:label="BeerOfWeek" >
