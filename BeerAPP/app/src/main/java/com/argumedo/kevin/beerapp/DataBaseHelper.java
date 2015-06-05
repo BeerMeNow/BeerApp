@@ -18,6 +18,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private String[] projection = {
             //beerId, name, description, abv, pic, styleId
             Contract.PhotoEntry._ID,
+            Contract.PhotoEntry.BEERID,
             Contract.PhotoEntry.NAME,
             Contract.PhotoEntry.ABV,
             Contract.PhotoEntry.STYLE,
@@ -26,7 +27,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE =
             "CREATE TABLE " +
                     Contract.PhotoEntry.TABLE_NAME + " (" +
-                    Contract.PhotoEntry._ID + " TEXT NOT NULL, " +
+                    Contract.PhotoEntry._ID + " TEXT PRIMARY KEY, " +
+                    Contract.PhotoEntry.BEERID + " TEXT NOT NULL, " +
                     Contract.PhotoEntry.NAME + " TEXT NOT NULL, " +
                     Contract.PhotoEntry.ABV + " TEXT NOT NULL, " +
                     Contract.PhotoEntry.STYLE + " TEXT NOT NULL," +
@@ -55,8 +57,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
 //    private String id,day,min,max,night,eve,morn,wtf,description;
-
         cv.put(Contract.PhotoEntry._ID, photo.getBeerId());
+        cv.put(Contract.PhotoEntry.BEERID, photo.getBeerId());
         cv.put(Contract.PhotoEntry.NAME, photo.getName());
         cv.put(Contract.PhotoEntry.ABV, photo.getAbv());
         cv.put(Contract.PhotoEntry.STYLE, photo.getStyleId());

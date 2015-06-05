@@ -10,16 +10,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-/**
- * Created by mark on 4/29/15.
- */
 public class FlickerFragment extends Fragment implements AdapterView.OnItemClickListener{
     Cursor cursor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.beer_list, container, false);
-        Favorites activity = (Favorites)this.getActivity();
 
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         cursor = dbHelper.getAllRows();

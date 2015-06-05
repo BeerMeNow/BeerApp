@@ -53,10 +53,10 @@ public class Favorites extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites);
-        //FragmentManager fm = getSupportFragmentManager();
-        //FragmentTransaction ft = fm.beginTransaction();
-        //ft.replace(R.id.textView69, new FlickerFragment());
-        //ft.commit();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.container2, new FlickerFragment());
+        ft.commit();
     }
 
 
