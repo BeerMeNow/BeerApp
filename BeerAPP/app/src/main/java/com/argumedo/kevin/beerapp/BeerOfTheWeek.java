@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class BeerOfTheWeek extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.beeroftheweek);
+        setContentView(R.layout.beerdisplay);
         startLoadTask(BeerOfTheWeek.this);
     }
 
@@ -58,7 +59,7 @@ public class BeerOfTheWeek extends ActionBarActivity
     private class CallAPI extends AsyncTask<String, String, String> {
         ArrayList<Beer> fBeer;
         HttpURLConnection urlConnection = null;
-        ImageView image = (ImageView) findViewById(R.id.featuredPic);
+        ImageView image = (ImageView) findViewById(R.id.Pic);
         Bitmap bmImage = null;
 
         @Override
@@ -118,11 +119,12 @@ public class BeerOfTheWeek extends ActionBarActivity
         protected void onPostExecute(String result) {
             if(result != null)
             {
-                TextView fName = (TextView) findViewById(R.id.featuredName);
-                TextView fDesc = (TextView) findViewById(R.id.featuredDesc);
-
+                TextView fName = (TextView) findViewById(R.id.Name);
+                TextView fDesc = (TextView) findViewById(R.id.Desc);
+                TextView fTitle = (TextView) findViewById(R.id.title);
                 if(fBeer != null)
                 {
+                    fTitle.setText("Beer Of The Week");
                     fName.setText(fBeer.get(0).getName() + " ABV(" + fBeer.get(0).getAbv() + "%)");
                     fDesc.setText(fBeer.get(0).getDescription());
                     if(bmImage == null)
@@ -132,6 +134,21 @@ public class BeerOfTheWeek extends ActionBarActivity
                     else {
                         image.setImageBitmap(bmImage);
                     }
+
+                    final TextView rec = (TextView) findViewById(R.id.recommended);
+
+                    rec.setText("View Recommended Beers");
+                    rec.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            String query = fBeer.get(0).getStyleId();
+
+                            Intent intent = new Intent(BeerOfTheWeek.this, Recommended.class);
+                            intent.putExtra("query", query);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 else
                 {

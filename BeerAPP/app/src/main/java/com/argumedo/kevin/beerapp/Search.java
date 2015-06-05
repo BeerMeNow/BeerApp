@@ -126,7 +126,7 @@ public class Search extends ActionBarActivity
             String[] beernames = new String[beers.size()];
             for(int i = 0; i < beers.size(); i++)
             {
-                beernames[i] = beers.get(i).getName();
+                beernames[i] = beers.get(i).getName() + " ABV(" + beers.get(i).getAbv() + "%)";
             }
 
             listView = (ListView) findViewById(R.id.list);
@@ -143,7 +143,6 @@ public class Search extends ActionBarActivity
                                         int position, long id) {
 
                     int itemPosition     = position;
-
 
                     Beer vBeer = beers.get(itemPosition);
 

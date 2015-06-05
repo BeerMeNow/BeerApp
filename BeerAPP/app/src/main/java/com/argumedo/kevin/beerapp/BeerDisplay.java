@@ -1,6 +1,7 @@
 package com.argumedo.kevin.beerapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -10,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +37,7 @@ public class BeerDisplay extends ActionBarActivity
         setContentView(R.layout.beerdisplay);
         startLoadTask(this);
     }
+
 
     public void startLoadTask(Context c){
         if (isOnline()) {
@@ -91,13 +94,17 @@ public class BeerDisplay extends ActionBarActivity
             TextView Name;
             TextView Desc;
             TextView ABV;
+            TextView Recommended;
 
             Name = (TextView) findViewById(R.id.Name);
             Desc = (TextView) findViewById(R.id.Desc);
             ABV = (TextView)  findViewById(R.id.ABV);
+            Recommended = (TextView) findViewById(R.id.recommended);
 
             Name.setText(beer.getName());
             ABV.setText("ABV(" + beer.getAbv() + "%)");
+            Recommended.setText("View Recommended Beers");
+
 
             if(beer.getDescription().length()>0)
             {
@@ -115,6 +122,21 @@ public class BeerDisplay extends ActionBarActivity
             {
                 image.setImageBitmap(bmImage);
             }
+
+            final TextView rec = (TextView) findViewById(R.id.recommended);
+
+            rec.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String query = beer.getStyleId();
+
+                    Intent intent = new Intent(BeerDisplay.this, Recommended.class);
+                    intent.putExtra("query", query);
+                    startActivity(intent);
+                }
+            });
+
 
         }
     }

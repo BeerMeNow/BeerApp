@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Beer implements Serializable{
-    private String beerId, name, description, abv, pic;
+    private String beerId, name, description, abv, pic, styleId;
     public Beer(JSONObject jsonBeer, String Pic) throws JSONException
     {
         this.beerId = (String) jsonBeer.optString("id");
@@ -18,6 +18,7 @@ public class Beer implements Serializable{
         this.description = (String) jsonBeer.optString("description");
         this.abv = (String) jsonBeer.optString("abv");
         this.pic = Pic;
+        this.styleId = jsonBeer.optString("styleId");
     }
 
     public static ArrayList<Beer> getFeaturedBeer(String featuredData) throws JSONException
@@ -86,8 +87,6 @@ public class Beer implements Serializable{
 
     }
 
-
-
     public String getName() {
         return name;
     }
@@ -103,6 +102,10 @@ public class Beer implements Serializable{
     public String getDescription() {
 
         return description;
+    }
+
+    public String getStyleId() {
+        return styleId;
     }
 
     public String getPic() {

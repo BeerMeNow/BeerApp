@@ -43,6 +43,12 @@
             android:label="BeerDisplay" >
 
         </activity>
+
+        <activity
+            android:name=".Recommended"
+            android:label="Recommended" >
+
+        </activity>
     </application>
 
 </manifest>

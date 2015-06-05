@@ -36,7 +36,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:background="@drawable/search"
+            android:background="@drawable/pressed_search"
             android:id="@+id/search"
             android:layout_toRightOf="@id/searchQ"
             />
@@ -54,7 +54,7 @@
 
         <Button
             android:id="@+id/favorites"
-            android:background="@drawable/favorites"
+            android:background="@drawable/pressed_favorites"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             />
@@ -63,7 +63,7 @@
             android:layout_width="fill_parent"
             android:layout_marginBottom="10dp"
             android:id="@+id/nearMe"
-            android:background="@drawable/near_me"
+            android:background="@drawable/pressed_near"
             android:gravity="center"
             />
 
@@ -71,15 +71,16 @@
             android:layout_width="fill_parent"
             android:layout_marginBottom="10dp"
             android:id="@+id/surpiseMe"
-            android:background="@drawable/surprise_me"
+            android:background="@drawable/pressed_surprise"
             android:gravity="center"
             />
+
 
         <Button
             android:layout_width="fill_parent"
             android:layout_marginBottom="10dp"
             android:id="@+id/beerOfTheWeek"
-            android:background="@drawable/beer_of_the_week"
+            android:background="@drawable/pressed_week"
             android:gravity="center"
             />
 

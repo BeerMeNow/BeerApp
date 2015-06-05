@@ -12,11 +12,16 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,14 +33,19 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class SurpriseMe extends ActionBarActivity
+public class Recommended extends ActionBarActivity
 {
+    ListView listView;
+    ArrayList<Beer> beers1;
+    String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.beerdisplay);
-        startLoadTask(SurpriseMe.this);
+        setContentView(R.layout.beer_list);
+        Intent intent = getIntent();
+        query = intent.getStringExtra("query");
+        startLoadTask(Recommended.this);
     }
 
     public void startLoadTask(Context c){
@@ -44,7 +54,7 @@ public class SurpriseMe extends ActionBarActivity
             task.execute();
 
         } else {
-            Toast.makeText(c, "Not Online", Toast.LENGTH_LONG).show();
+            Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -56,16 +66,14 @@ public class SurpriseMe extends ActionBarActivity
     }
 
     private class CallAPI extends AsyncTask<String, String, String> {
-        ArrayList<Beer> randomBeer;
+        ArrayList<Beer> beers;
         HttpURLConnection urlConnection = null;
-        ImageView image = (ImageView) findViewById(R.id.Pic);
-        Bitmap bmImage = null;
 
         @Override
         protected String doInBackground(String... params) {
             String startURL = "https://api.brewerydb.com/v2/";
             String endURL = "key=e1afe81e104ba290bb7507cd693ead92&format=json";
-            String dataString = startURL + "beer/random?hasLabels=y&" + endURL;
+            String dataString = startURL + "beers/?styleId="+ query + "&hasLabels=y&" + endURL;
 
             try {
                 URL dataURL = new URL(dataString);
@@ -85,14 +93,7 @@ public class SurpriseMe extends ActionBarActivity
                     sb = sb.append(response);
                 }
                 String fData = sb.toString();
-                Log.d("data", fData);
-
-
-                randomBeer = Beer.getRandomBeer(fData);
-
-                InputStream in = new java.net.URL(randomBeer.get(0).getPic()).openStream();
-                bmImage = BitmapFactory.decodeStream(in);
-
+                beers = Beer.getBeers(fData);
 
             }  catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -105,13 +106,8 @@ public class SurpriseMe extends ActionBarActivity
             {
                 e.printStackTrace();
             } finally {
-                if(bmImage == null)
-                {
-                    image.setImageDrawable(getResources().getDrawable(R.drawable.unavailable));
-                }
                 if (urlConnection != null) {
                     urlConnection.disconnect();
-
                 }
             }
             return "";
@@ -120,50 +116,43 @@ public class SurpriseMe extends ActionBarActivity
         protected void onPostExecute(String result) {
             if(result != null)
             {
-                TextView rName = (TextView) findViewById(R.id.Name);
-                TextView rDesc = (TextView) findViewById(R.id.Desc);
-                TextView rABV = (TextView)  findViewById(R.id.ABV);
-
-                if(randomBeer != null)
-                {
-                    rName.setText(randomBeer.get(0).getName());
-                    rABV.setText("ABV(" + randomBeer.get(0).getAbv() + "%)");
-
-                    if(randomBeer.get(0).getDescription().length()>0)
-                    {
-                        rDesc.setText(randomBeer.get(0).getDescription());
-                    }
-                    else
-                    {
-                        rDesc.setText("Description is Unavailable");
-                    }
-                    if(bmImage == null)
-                    {
-                        image.setImageDrawable(getResources().getDrawable(R.drawable.unavailable));
-                    }
-                    else {
-                        image.setImageBitmap(bmImage);
-                    }
-                    final TextView rec = (TextView) findViewById(R.id.recommended);
-
-                    rec.setText("View Recommended Beers");
-                    rec.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            String query = randomBeer.get(0).getStyleId();
-
-                            Intent intent = new Intent(SurpriseMe.this, Recommended.class);
-                            intent.putExtra("query", query);
-                            startActivity(intent);
-                        }
-                    });
-                }
-                else
-                {
-                    rName.setText("Error");
-                }
+                beers1 = beers;
             }
+            String[] beernames = new String[beers.size()];
+            for(int i = 0; i < beers.size(); i++)
+            {
+                beernames[i] = beers.get(i).getName();
+            }
+
+            listView = (ListView) findViewById(R.id.list);
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(Recommended.this,
+                    android.R.layout.simple_list_item_1, android.R.id.text1, beernames);
+
+            listView.setAdapter(adapter);
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+
+                    int itemPosition     = position;
+
+
+                    Beer vBeer = beers.get(itemPosition);
+
+                    Intent intent = new Intent(Recommended.this, BeerDisplay.class);
+                    intent.putExtra("vBeer", vBeer );
+                    startActivity(intent);
+                }
+
+
+
+            });
+
+
+
 
         }
     }
