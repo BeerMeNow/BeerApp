@@ -48,6 +48,7 @@ import java.util.ArrayList;
 
 public class Favorites extends ActionBarActivity
 {
+    //kevin sucks!
     Button favorite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
