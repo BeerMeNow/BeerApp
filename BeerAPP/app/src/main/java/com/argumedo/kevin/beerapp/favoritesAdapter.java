@@ -51,17 +51,24 @@ public class favoritesAdapter extends CursorAdapter {
         delete = (Button) view.findViewById(R.id.deleteMe);
 
         delete.setOnClickListener(new View.OnClickListener() {
+            //we had to have it here so it doesnt wait to get the ID when you click 
+            //it gets it when you create hence setOnClickListener
+            String ID2 = cur.getString(cur.getColumnIndex(Contract.beerEntry._ID)); ;
+
             @Override
             public void onClick(View v) {
+                cur.getColumnIndex(Contract.beerEntry._ID);
+                //ID=cur.getString(cur.getColumnIndex(Contract.beerEntry._ID));
+                name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
                 Toast.makeText(mContext, "Deleted",
                         Toast.LENGTH_SHORT).show();
                 Log.d("TAG", "status " + "hello sucker Just checking on you ");
-                cur.getColumnIndex(Contract.beerEntry._ID);
-                ID=cur.getString(cur.getColumnIndex(Contract.beerEntry._ID));
-                name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
+                //cur.getColumnIndex(Contract.beerEntry._ID);
+               // ID=cur.getString(cur.getColumnIndex(Contract.beerEntry._ID));
+                //name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
                 DataBaseHelper dbHelper = new DataBaseHelper(mContext);
                 //dbHelper.clearTable();
-                dbHelper.deleteRow(ID);
+                dbHelper.deleteRow(ID2);
 
                 dbHelper.close();
 
