@@ -11,7 +11,7 @@ import android.provider.BaseColumns;
 public class Contract {
     public static final String DATABASE_NAME = "kevinsucks4.db";
 
-    public static final class PhotoEntry implements BaseColumns {
+    public static final class beerEntry implements BaseColumns {
         //beerId, name, description, abv, pic, styleId
 
         public static final String TABLE_NAME = "photo_entry";

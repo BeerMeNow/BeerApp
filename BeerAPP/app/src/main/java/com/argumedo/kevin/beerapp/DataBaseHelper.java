@@ -9,34 +9,32 @@ import android.util.Log;
 
 import java.util.List;
 
-/**
- * Created by mark on 5/7/15.
- */
+
 public class DataBaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 
     private String[] projection = {
             //beerId, name, description, abv, pic, styleId
-            Contract.PhotoEntry._ID,
-            Contract.PhotoEntry.BEERID,
-            Contract.PhotoEntry.NAME,
-            Contract.PhotoEntry.ABV,
-            Contract.PhotoEntry.STYLE,
-            Contract.PhotoEntry.TYPE,};
+            Contract.beerEntry._ID,
+            Contract.beerEntry.BEERID,
+            Contract.beerEntry.NAME,
+            Contract.beerEntry.ABV,
+            Contract.beerEntry.STYLE,
+            Contract.beerEntry.TYPE,};
 
     private static final String DATABASE_CREATE =
             "CREATE TABLE " +
-                    Contract.PhotoEntry.TABLE_NAME + " (" +
-                    Contract.PhotoEntry._ID + " TEXT PRIMARY KEY, " +
-                    Contract.PhotoEntry.BEERID + " TEXT NOT NULL, " +
-                    Contract.PhotoEntry.NAME + " TEXT NOT NULL, " +
-                    Contract.PhotoEntry.ABV + " TEXT NOT NULL, " +
-                    Contract.PhotoEntry.STYLE + " TEXT NOT NULL," +
-                    Contract.PhotoEntry.TYPE + " TEXT NOT NULL" +")";
+                    Contract.beerEntry.TABLE_NAME + " (" +
+                    Contract.beerEntry._ID + " TEXT PRIMARY KEY, " +
+                    Contract.beerEntry.BEERID + " TEXT NOT NULL, " +
+                    Contract.beerEntry.NAME + " TEXT NOT NULL, " +
+                    Contract.beerEntry.ABV + " TEXT NOT NULL, " +
+                    Contract.beerEntry.STYLE + " TEXT NOT NULL," +
+                    Contract.beerEntry.TYPE + " TEXT NOT NULL" +")";
 
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + Contract.PhotoEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + Contract.beerEntry.TABLE_NAME;
 
     public DataBaseHelper(Context context) {
         super(context, Contract.DATABASE_NAME, null, 1);
@@ -44,7 +42,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i(Constants.TAG, "Create table command: " + DATABASE_CREATE);
+        Log.i("DB HELPER", "Create table command: " + DATABASE_CREATE);
         db.execSQL(DATABASE_CREATE);
     }
 
@@ -53,24 +51,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES);
     }
 
-    public void insertPhotoEntry(Beer photo) {
+    public void insertbeerEntry(Beer beer) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
 //    private String id,day,min,max,night,eve,morn,wtf,description;
-        cv.put(Contract.PhotoEntry._ID, photo.getBeerId());
-        cv.put(Contract.PhotoEntry.BEERID, photo.getBeerId());
-        cv.put(Contract.PhotoEntry.NAME, photo.getName());
-        cv.put(Contract.PhotoEntry.ABV, photo.getAbv());
-        cv.put(Contract.PhotoEntry.STYLE, photo.getStyleId());
-        cv.put(Contract.PhotoEntry.TYPE, photo.getType());
+        cv.put(Contract.beerEntry._ID, beer.getBeerId());
+        cv.put(Contract.beerEntry.BEERID, beer.getBeerId());
+        cv.put(Contract.beerEntry.NAME, beer.getName());
+        cv.put(Contract.beerEntry.ABV, beer.getAbv());
+        cv.put(Contract.beerEntry.STYLE, beer.getStyleId());
+        cv.put(Contract.beerEntry.TYPE, beer.getType());
 
 
-        db.insert(Contract.PhotoEntry.TABLE_NAME, null, cv);
+        db.insert(Contract.beerEntry.TABLE_NAME, null, cv);
     }
 
     public Cursor getAllRows() {
         SQLiteDatabase db = getReadableDatabase();
-        return db.query(Contract.PhotoEntry.TABLE_NAME, projection, null, null, null, null, null);
+        return db.query(Contract.beerEntry.TABLE_NAME, projection, null, null, null, null, null);
 
 //        Here's the method with arguments:
 //        public Cursor query (String table, String[] columns, String selection, String[]
@@ -81,30 +79,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor getRowByID(String id) {
         SQLiteDatabase db = getReadableDatabase();
         String[] ids = {String.valueOf(id)};
-        return db.query(Contract.PhotoEntry.TABLE_NAME, projection, Contract.PhotoEntry._ID + "==?", ids, null, null, null);
+        return db.query(Contract.beerEntry.TABLE_NAME, projection, Contract.beerEntry._ID + "==?", ids, null, null, null);
     }
 
     public void deleteRow(String id) {
         SQLiteDatabase db = getWritableDatabase();
         String[] ids = {id};
-        db.delete(Contract.PhotoEntry.TABLE_NAME, "_id" + "==?", ids);
+        db.delete(Contract.beerEntry.TABLE_NAME, "_id" + "==?", ids);
         Log.i("what id","ID:"+id);
         Log.i("delete rows","IDS:"+java.util.Arrays.toString(ids));
     }
 
-    public void addRows(List<Beer> photos) {
-        for (Beer photo : photos) {
-            insertPhotoEntry(photo);
+    public void addRows(List<Beer> beers) {
+        for (Beer beer : beers) {
+            insertbeerEntry(beer);
         }
     }
 
-    public void addRow(Beer photo) {
+    public void addRow(Beer beer) {
 
-        insertPhotoEntry(photo);
+        insertbeerEntry(beer);
     }
     public void clearTable() {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("delete from " + Contract.PhotoEntry.TABLE_NAME);
+        db.execSQL("delete from " + Contract.beerEntry.TABLE_NAME);
     }
 
     public void dropTable() {

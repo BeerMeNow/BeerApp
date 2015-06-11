@@ -17,9 +17,7 @@ import android.widget.Toast;
 
 import java.io.InputStream;
 
-/**
- * Created by mark on 5/7/15.
- */
+
 public class favoritesAdapter extends CursorAdapter {
     private ImageView mImageView;
     TextView myABV;
@@ -58,9 +56,9 @@ public class favoritesAdapter extends CursorAdapter {
                 Toast.makeText(mContext, "Deleted",
                         Toast.LENGTH_SHORT).show();
                 Log.d("TAG", "status " + "hello sucker Just checking on you ");
-                cur.getColumnIndex(Contract.PhotoEntry._ID);
-                ID=cur.getString(cur.getColumnIndex(Contract.PhotoEntry._ID));
-                name=cur.getString(cur.getColumnIndexOrThrow(Contract.PhotoEntry.NAME));
+                cur.getColumnIndex(Contract.beerEntry._ID);
+                ID=cur.getString(cur.getColumnIndex(Contract.beerEntry._ID));
+                name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
                 DataBaseHelper dbHelper = new DataBaseHelper(mContext);
                 //dbHelper.clearTable();
                 dbHelper.deleteRow(ID);
@@ -78,7 +76,7 @@ public class favoritesAdapter extends CursorAdapter {
 
 
         TextView title = (TextView) view.findViewById(R.id.title_text);
-        String beerName = cursor.getString(cursor.getColumnIndexOrThrow(Contract.PhotoEntry.NAME));
+        String beerName = cursor.getString(cursor.getColumnIndexOrThrow(Contract.beerEntry.NAME));
         if(beerName.length()>=29)
         {
            beerName=beerName.substring(0,29)+"...";
@@ -87,7 +85,7 @@ public class favoritesAdapter extends CursorAdapter {
         title.setText(beerName);
 
         myABV=(TextView) view.findViewById(R.id.favABV);
-        ABV=cursor.getString(cursor.getColumnIndexOrThrow(Contract.PhotoEntry.ABV));
+        ABV=cursor.getString(cursor.getColumnIndexOrThrow(Contract.beerEntry.ABV));
         Log.i("FLICKR PHOTO ADAPT",ABV);
         String myString="(ABV:"+ABV+"%)";
         if(ABV.length()<=0)

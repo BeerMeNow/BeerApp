@@ -15,7 +15,7 @@ public class beerFragment extends Fragment implements AdapterView.OnItemClickLis
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.beer_list, container, false);
+        View view = inflater.inflate(R.layout.fav_list, container, false);
 
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         cursor = dbHelper.getAllRows();
