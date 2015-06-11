@@ -64,6 +64,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(Contract.PhotoEntry.STYLE, photo.getStyleId());
         cv.put(Contract.PhotoEntry.TYPE, photo.getType());
 
+
         db.insert(Contract.PhotoEntry.TABLE_NAME, null, cv);
     }
 
@@ -85,8 +86,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void deleteRow(String id) {
         SQLiteDatabase db = getWritableDatabase();
-        String[] ids = {String.valueOf(id)};
-        db.delete(Contract.PhotoEntry.TABLE_NAME, Contract.PhotoEntry._ID + "==?", ids);
+        String[] ids = {id};
+        db.delete(Contract.PhotoEntry.TABLE_NAME, "_id" + "==?", ids);
+        Log.i("what id","ID:"+id);
+        Log.i("delete rows","IDS:"+java.util.Arrays.toString(ids));
     }
 
     public void addRows(List<Beer> photos) {

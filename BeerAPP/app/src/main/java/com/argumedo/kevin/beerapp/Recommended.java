@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,22 +39,27 @@ public class Recommended extends ActionBarActivity
     ListView listView;
     ArrayList<Beer> beers1;
     String query;
-
+    ProgressBar pb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beer_list);
+
         Intent intent = getIntent();
         query = intent.getStringExtra("query");
+        pb = (ProgressBar)findViewById(R.id.progressBar);
+        pb.setMax(100);
         startLoadTask(Recommended.this);
     }
 
     public void startLoadTask(Context c){
         if (isOnline()) {
+            pb.setProgress(75);
             CallAPI task = new CallAPI();
             task.execute();
 
         } else {
+            pb.setVisibility(View.GONE);
             Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
         }
     }
@@ -71,9 +77,11 @@ public class Recommended extends ActionBarActivity
 
         @Override
         protected String doInBackground(String... params) {
+
             String startURL = "https://api.brewerydb.com/v2/";
             String endURL = "key=e1afe81e104ba290bb7507cd693ead92&format=json";
             String dataString = startURL + "beers/?styleId="+ query + "&hasLabels=y&" + endURL;
+            pb.setVisibility(View.GONE);
 
             try {
                 URL dataURL = new URL(dataString);

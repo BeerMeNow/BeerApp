@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class FlickerFragment extends Fragment implements AdapterView.OnItemClickListener{
+public class beerFragment extends Fragment implements AdapterView.OnItemClickListener{
     Cursor cursor;
 
     @Override
@@ -23,11 +23,14 @@ public class FlickerFragment extends Fragment implements AdapterView.OnItemClick
         //will change this later when we use a CursorLoader
         getActivity().startManagingCursor(cursor);
 
-        FlickrPhotoAdapter adapter = new FlickrPhotoAdapter(getActivity(), cursor);
+        favoritesAdapter adapter = new favoritesAdapter(getActivity(), cursor);
 
         ListView lv =(ListView) view.findViewById(R.id.list);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(this);
+        //noinspection deprecation
+//        cursor.requery();
+//        adapter.notifyDataSetChanged();
 
         return view;
     }

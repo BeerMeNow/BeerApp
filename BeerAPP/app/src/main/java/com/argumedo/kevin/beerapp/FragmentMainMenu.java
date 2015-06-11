@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.content.Intent;
 
 public class FragmentMainMenu extends Fragment implements AdapterView.OnItemClickListener{
-    Button beerWeek, surpriseMe, search, fav;
+    Button beerWeek, surpriseMe, search, fav,nearMe;
     EditText searchQ;
 
     @Override
@@ -25,6 +25,15 @@ public class FragmentMainMenu extends Fragment implements AdapterView.OnItemClic
             @Override
             public void onClick(View v) {
                 favorites();
+            }
+        });
+
+        nearMe=(Button) view.findViewById(R.id.nearMe);
+        nearMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nearMe();
+
             }
         });
 
@@ -59,6 +68,8 @@ public class FragmentMainMenu extends Fragment implements AdapterView.OnItemClic
             }
         });
 
+
+
         return view;
     }
 
@@ -82,6 +93,14 @@ public class FragmentMainMenu extends Fragment implements AdapterView.OnItemClic
         Intent intent = new Intent(getActivity(),Favorites.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
+    }
+
+    public void nearMe()
+    {
+        Intent intent= new Intent(getActivity(),NearMe.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
+
     }
     //(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState, Cursor cursor
     @Override

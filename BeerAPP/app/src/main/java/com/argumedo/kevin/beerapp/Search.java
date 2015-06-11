@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ public class Search extends ActionBarActivity
     ListView listView;
     ArrayList<Beer> beers1;
     String query;
-
+    ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +47,20 @@ public class Search extends ActionBarActivity
         setContentView(R.layout.beer_list);
         Intent intent = getIntent();
         query = intent.getStringExtra("query");
+
+        pb = (ProgressBar)findViewById(R.id.progressBar);
+        pb.setMax(100);
         startLoadTask(Search.this);
-
-
     }
 
     public void startLoadTask(Context c){
         if (isOnline()) {
+            pb.setProgress(75);
             CallAPI task = new CallAPI();
             task.execute();
 
         } else {
+            pb.setVisibility(View.GONE);
             Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
         }
     }

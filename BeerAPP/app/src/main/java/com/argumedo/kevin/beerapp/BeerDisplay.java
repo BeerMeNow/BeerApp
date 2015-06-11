@@ -49,24 +49,30 @@ import java.util.ArrayList;
 public class BeerDisplay extends ActionBarActivity
 {
     Button favorite;
+    ProgressBar pb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beerdisplay);
+        pb = (ProgressBar)findViewById(R.id.progressBarNew);
+        pb.setMax(100);
         startLoadTask(this);
+
         favorite = (Button) findViewById(R.id.favAdd);
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("TAG", "status " + "hello sucker Just checking on you ");
                 Beer beer = (Beer) getIntent().getSerializableExtra("vBeer");
-                beer.setType("1");
+//                beer.setType("1");
 
                 DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
-                dbHelper.clearTable();
+                //dbHelper.clearTable();
                 dbHelper.addRow(beer);
                 dbHelper.close();
-                Log.d("TAG", "status " + "was it added yes I think ");
+                Toast.makeText(getApplicationContext(), "Added to Favorites",
+                        Toast.LENGTH_SHORT).show();
+                Log.d("BEER DISPLAY", "BEER that was added: " + beer.getName()+beer.getBeerId());
 
                 // showList();
 
@@ -78,16 +84,19 @@ public class BeerDisplay extends ActionBarActivity
     public void showList() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.container, new FlickerFragment());
+        ft.replace(R.id.container, new beerFragment());
         ft.commit();
     }
     */
     public void startLoadTask(Context c){
         if (isOnline()) {
+            pb.setProgress(75);
             loadItems task = new loadItems();
             task.execute();
 
         } else {
+            pb.setVisibility(View.GONE);
+
             Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
         }
     }
@@ -101,6 +110,7 @@ public class BeerDisplay extends ActionBarActivity
 
 
     private class loadItems extends AsyncTask<String, String, String> {
+
         HttpURLConnection urlConnection = null;
         ImageView image = (ImageView) findViewById(R.id.Pic);
         Bitmap bmImage = null;
@@ -138,6 +148,7 @@ public class BeerDisplay extends ActionBarActivity
             TextView Desc;
             TextView ABV;
             TextView Recommended;
+            pb.setVisibility(View.GONE);
 
             Name = (TextView) findViewById(R.id.Name);
             Desc = (TextView) findViewById(R.id.Desc);

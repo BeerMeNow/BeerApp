@@ -14,7 +14,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,19 +33,46 @@ import java.util.ArrayList;
 
 public class BeerOfTheWeek extends ActionBarActivity
 {
+    Button favorite;
+    ProgressBar pb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beerdisplay);
+        pb = (ProgressBar)findViewById(R.id.progressBarNew);
+        pb.setMax(100);
         startLoadTask(BeerOfTheWeek.this);
+        favorite = (Button) findViewById(R.id.favAdd);
+        favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TAG", "status " + "hello sucker Just checking on you ");
+                Beer beer = (Beer) getIntent().getSerializableExtra("vBeer");
+                beer.setType("1");
+
+                DataBaseHelper dbHelper = new DataBaseHelper(getApplicationContext());
+                //dbHelper.clearTable();
+                dbHelper.addRow(beer);
+                dbHelper.close();
+                Toast.makeText(getApplicationContext(), "Added to Favorites",
+                        Toast.LENGTH_LONG).show();
+                Log.d("BEER DISPLAY", "BEER that was added: " + beer.getName() + beer.getBeerId());
+
+                // showList();
+
+
+            }
+        });
     }
 
     public void startLoadTask(Context c){
         if (isOnline()) {
+            pb.setProgress(75);
             CallAPI task = new CallAPI();
             task.execute();
 
         } else {
+            pb.setVisibility(View.GONE);
             Toast.makeText(c, "Not online", Toast.LENGTH_LONG).show();
         }
     }
@@ -117,6 +146,8 @@ public class BeerOfTheWeek extends ActionBarActivity
         }
 
         protected void onPostExecute(String result) {
+            pb.setVisibility(View.GONE);
+
             if(result != null)
             {
                 TextView fName = (TextView) findViewById(R.id.Name);

@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,20 +31,26 @@ import java.util.ArrayList;
 
 public class SurpriseMe extends ActionBarActivity
 {
+    ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beerdisplay);
+        pb = (ProgressBar)findViewById(R.id.progressBarNew);
+        pb.setMax(100);
         startLoadTask(SurpriseMe.this);
     }
 
     public void startLoadTask(Context c){
         if (isOnline()) {
+
             CallAPI task = new CallAPI();
             task.execute();
-
+            pb.setProgress(75);
         } else {
+            pb.setVisibility(View.GONE);
+
             Toast.makeText(c, "Not Online", Toast.LENGTH_LONG).show();
         }
     }
@@ -118,6 +125,7 @@ public class SurpriseMe extends ActionBarActivity
         }
 
         protected void onPostExecute(String result) {
+            pb.setVisibility(View.GONE);
             if(result != null)
             {
                 TextView rName = (TextView) findViewById(R.id.Name);
