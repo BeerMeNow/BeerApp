@@ -123,10 +123,7 @@ public class Search extends ActionBarActivity
         }
 
         protected void onPostExecute(String result) {
-            if(result != null)
-            {
-                beers1 = beers;
-            }
+
             String[] beernames = new String[beers.size()];
             for(int i = 0; i < beers.size(); i++)
             {

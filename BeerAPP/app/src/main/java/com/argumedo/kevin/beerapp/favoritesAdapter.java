@@ -62,7 +62,6 @@ public class favoritesAdapter extends CursorAdapter {
                 name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
                 Toast.makeText(mContext, "Deleted",
                         Toast.LENGTH_SHORT).show();
-                Log.d("TAG", "status " + "hello sucker Just checking on you ");
                 //cur.getColumnIndex(Contract.beerEntry._ID);
                // ID=cur.getString(cur.getColumnIndex(Contract.beerEntry._ID));
                 //name=cur.getString(cur.getColumnIndexOrThrow(Contract.beerEntry.NAME));
@@ -72,8 +71,6 @@ public class favoritesAdapter extends CursorAdapter {
 
                 dbHelper.close();
 
-                Log.d("ADAPTER", "BEER that was Deleted: " + name + "ID:" + ID);
-                Log.i("index:", "the index is:" + ID);
 
                 //noinspection deprecation
                 cur.requery();
@@ -93,7 +90,6 @@ public class favoritesAdapter extends CursorAdapter {
 
         myABV=(TextView) view.findViewById(R.id.favABV);
         ABV=cursor.getString(cursor.getColumnIndexOrThrow(Contract.beerEntry.ABV));
-        Log.i("FLICKR PHOTO ADAPT",ABV);
         String myString="(ABV:"+ABV+"%)";
         if(ABV.length()<=0)
         {

@@ -59,8 +59,12 @@ public class FragmentMainMenu extends Fragment implements AdapterView.OnItemClic
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String query = searchQ.getText().toString();
+                String qSplit[] = searchQ.getText().toString().split(" ");
+                String query = qSplit[0];
+                for(int i = 1; i < qSplit.length; i++)
+                {
+                    query += "%20" + qSplit[i];
+                }
 
                 Intent intent = new Intent(getActivity(), Search.class);
                 intent.putExtra("query", query);

@@ -7,7 +7,7 @@
 
     <ListView
         android:id="@+id/list"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="match_parent">
 
     </ListView>
@@ -18,9 +18,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="114dp"
             android:minHeight="40dip"
             android:minWidth="200dip" />
 
