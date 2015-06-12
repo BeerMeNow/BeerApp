@@ -78,10 +78,9 @@ public class favoritesAdapter extends CursorAdapter {
             }
         });
 
-
         TextView title = (TextView) view.findViewById(R.id.title_text);
         String beerName = cursor.getString(cursor.getColumnIndexOrThrow(Contract.beerEntry.NAME));
-        if(beerName.length()>=29)
+        if(beerName.length()>=20)
         {
            beerName=beerName.substring(0,29)+"...";
 

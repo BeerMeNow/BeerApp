@@ -2,32 +2,186 @@
 <items version="2" >
 
     <item
-        jar="/Users/maricelavega/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-3e91e950e7091451c6f9f0de7ee078244652e765.jar" />
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-19447345ace5cc270e700e3fbe720dc9972fd91b.jar" />
     </item>
     <item
-        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-33846bd9cf969c5a798b859ebc5cb00db2b41823.jar" />
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-b0fe57bf2d844c1e1cfe0c73924b6fb2255fcb33.jar" />
     </item>
     <item
-        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-e322dcc6a655e4ebaf5e43584abd58aec1be2293.jar" />
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-802865f8b59f3c7fdb88b7456af7a1eb12a0e615.jar" />
     </item>
     <item
-        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-1a41cf053b27a1c9c5297d7f53997ca3036ebe91.jar" />
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-a6124269688e44ae1f4ffcfa10ff1be4bb403448.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-f51e782ef5b5553d360ac6c62fa8179b4a1b1698.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-a0692bc81e854b50414dba9673df9a76cd55bbed.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-f3396290c8c14d09fe29832841839546abac4aa8.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-03d8dca733e95d630d40f8dea5462badfeb7fadd.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-3a8de0db47aacda96bf93eef7497fdb634441425.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-b77f4527625e0fa26907c7f7d549dee25bf2c265.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-5ed89b6411c7d4d452eeed5ae30183e6c88e01db.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-6b085624edff252ab8e97caefcd69793e8d7ead4.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-4e3228c5bceb904dc33de120a0bbba0df3a91cc4.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-131e47161fbdd95f180d45c16bbb3d676f02f59e.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-03dfab6d3b243eeaa44dc391e5f5004cd0561355.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-d623bf65357749103670bfef576300f3a5f3dd2c.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-570de0a8e7940f14057ab723e2397d0881a20e8e.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-c3c5c2242df1e5638510cd9cc8cab7352c331299.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-bdb5d3deb1b00fd3a4e895da004389bb5447c648.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-e39dd392fc6c07b2f77efe170a63bae06bef0cf9.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-cc96283e9c070092b3f71b9f166263d41b95ac49.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-63029325677d011ae661e1820d273168ca75cb8b.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-1001aa807c330c912b7a49f02ad967e00cfde570.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-87ad2ae095e8bc2d46b1fc47dbe514ec97dc0bf6.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-471fe5af3d4859f47682f01ce45ee8a272339cb0.jar" />
+    </item>
+    <item
+        jar="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/Users/maricelavega/Desktop/BeerAppGit/BeerAPP/app/build/intermediates/pre-dexed/debug/classes-a25da512959d87cb9a49070c201d13d7970808eb.jar" />
     </item>
 
 </items>
